@@ -38,12 +38,10 @@ export const store = new Vuex.Store({
       console.log('executant accio')
       axios.get('http://localhost:3006/users')
       .then(res => {
-        console.log('bu')
         console.log(JSON.stringify(res))
         context.commit('updateAll', res.data.rows)
       })
       .catch(err => {
-        console.log('brrr')
         console.log(err)
       })
     }

@@ -35,6 +35,9 @@ export default {
     funx () {
       console.log('bu')
     }
+  },
+  created () {
+    this.identificat()
   }
 }
 </script>
