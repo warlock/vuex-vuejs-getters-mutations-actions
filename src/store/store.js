@@ -1,5 +1,6 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
+import axios from 'axios'
 
 Vue.use(Vuex)
 export const store = new Vuex.Store({
@@ -23,11 +24,28 @@ export const store = new Vuex.Store({
   mutations: {
     add (state, payload) {
       state.users.push(payload.user)
+    },
+    updateAll (state, payload) {
+      console.log(JSON.stringify(payload.users))
+      state.users = payload.users
     }
   },
   actions: {
     add (context, payload) {
       context.commit('add', payload)
+    },
+    identificat (context) {
+      console.log('executant accio')
+      axios.get('http://localhost:3006/users')
+      .then(res => {
+        console.log('bu')
+        console.log(JSON.stringify(res))
+        context.commit('updateAll', res.data.rows)
+      })
+      .catch(err => {
+        console.log('brrr')
+        console.log(err)
+      })
     }
   }
 })

@@ -8,6 +8,7 @@
         user: { id: 5, name: 'XXX', registered: false }
       })">afegeix</div>
     <div @click="funx()">proba</div>
+    <div @click="identificat()">probaXXX</div>
   </div>
 </template>
 
@@ -28,7 +29,8 @@ export default {
   } */
   methods: {
     ...mapActions([
-      'add'
+      'add',
+      'identificat'
     ]),
     funx () {
       console.log('bu')
